@@ -1,5 +1,5 @@
 # defi-alyra
 
 * UniswapV2 fork
-* MasterChef Sushiswap fork
+* MasterChef SushiSwap fork
 * MasterChef contract fork
