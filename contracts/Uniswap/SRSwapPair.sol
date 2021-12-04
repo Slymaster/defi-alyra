@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 pragma solidity 0.8.10;
 
 import './interfaces/IUniswapV2Pair.sol';
@@ -58,7 +59,7 @@ contract SRSwapPair is IUniswapV2Pair, SRSwapERC20 {
     );
     event Sync(uint112 reserve0, uint112 reserve1);
 
-    constructor() public {
+    constructor() {
         factory = msg.sender;
     }
 

@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 pragma solidity 0.8.10;
 
 import './interfaces/IUniswapV2Factory.sol';
@@ -20,7 +21,7 @@ contract SRSwapRouter02 is IUniswapV2Router02 {
         _;
     }
 
-    constructor(address _factory, address _WETH) public {
+    constructor(address _factory, address _WETH) {
         factory = _factory;
         WETH = _WETH;
     }
