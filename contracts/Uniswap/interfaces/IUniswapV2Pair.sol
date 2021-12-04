@@ -2,8 +2,8 @@
 pragma solidity 0.8.10;
 
 interface IUniswapV2Pair {
-    event Approval(address indexed owner, address indexed spender, uint value);
-    event Transfer(address indexed from, address indexed to, uint value);
+//    event Approval(address indexed owner, address indexed spender, uint value);
+//    event Transfer(address indexed from, address indexed to, uint value);
 
     function name() external pure returns (string memory);
     function symbol() external pure returns (string memory);
