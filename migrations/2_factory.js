@@ -1,7 +1,7 @@
 const Factory = artifacts.require("Uniswap/SBSwapFactory.sol");
 const FakeUSDC = artifacts.require("Uniswap/FakeUSDC.sol");
 const FakeUSDT = artifacts.require("Uniswap/FakeUSDT.sol");
-const FakeDAI = artifacts.require("Uniswap/FakeDai.sol");
+const FakeDAI = artifacts.require("Uniswap/FakeDAI.sol");
 const WETH = artifacts.require("Uniswap/WETH.sol");
 
 module.exports = async function (deployer, network, addresses) {
