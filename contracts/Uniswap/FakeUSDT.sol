@@ -2,10 +2,9 @@
 pragma solidity 0.8.10;
 
 import '@openzeppelin/contracts/token/ERC20/ERC20.sol';
-import '@openzeppelin/contracts/token/ERC20/ERC20Detailed.sol';
 
-contract FakeUSDT is ERC20Detailled, ERC20 {
-    constructor() ERC20Detailled('FakeUSDT', 'fUSDT', 18) public {}
+contract FakeUSDT is ERC20 {
+    constructor() ERC20('FakeUSDT', 'fUSDT') {}
 
     function mint(address to, uint256 ammount) public {
         _mint(to, ammount);
