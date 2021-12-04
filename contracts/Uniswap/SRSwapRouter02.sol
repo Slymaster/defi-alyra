@@ -13,8 +13,8 @@ import './interfaces/IWETH.sol';
 contract SRSwapRouter02 is IUniswapV2Router02 {
     using SafeMath for uint;
 
-    address public immutable override factory;
-    address public immutable override WETH;
+    address public immutable factory;
+    address public immutable WETH;
 
     modifier ensure(uint deadline) {
         require(deadline >= block.timestamp, 'UniswapV2Router: EXPIRED');
