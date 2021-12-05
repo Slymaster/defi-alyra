@@ -12,7 +12,6 @@ module.exports = async function (deployer, network, addresses) {
     const factory = await Factory.deployed();
     await Factory.deployed();
     //|:::::::::::::::::::::::::::::::::|
-
     let fakeUSDCAddress, fakeUSDTAddress, fakeDAIAddress, wethAddress;
     if(network === 'mainnet') {
         fakeUSDCAddress = '';
