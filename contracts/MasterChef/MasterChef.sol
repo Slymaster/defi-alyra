@@ -4,7 +4,7 @@ pragma solidity 0.8.10;
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "./SushiToken.sol";
+import "./SRSushi.sol";
 
 interface IMigratorChef {
     // Perform LP token migration from legacy UniswapV2 to SushiSwap.
@@ -53,7 +53,7 @@ contract MasterChef is Ownable {
         uint256 accSushiPerShare; // Accumulated SUSHIs per share, times 1e12. See below.
     }
     // The SUSHI TOKEN!
-    SushiToken public sushi;
+    SRSushi public sushi;
     // Dev address.
     address public devaddr;
     // Block number when bonus SUSHI period ends.
@@ -81,7 +81,7 @@ contract MasterChef is Ownable {
     );
 
     constructor(
-        SushiToken _sushi,
+        SRSushi _sushi,
         address _devaddr,
         uint256 _sushiPerBlock,
         uint256 _startBlock,
