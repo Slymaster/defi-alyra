@@ -29,4 +29,4 @@ Using the Truffle framework to execute the script.
 
 ## License
 
-The source code for the site is licensed under the MIT license, which you can find in the LICENSE file.
+The source code is licensed under the MIT license, which you can find in the LICENSE file.
