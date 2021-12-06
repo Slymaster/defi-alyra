@@ -12,15 +12,17 @@
 * Adds liquidity in the 3 pairs.
 * Performs a single swap via the router.
 
-* Using the Truffle framework to execute the script.
+### 🧰 How to use it ?
 
-  * The following commands are to be used in the root of the project:
+Using the Truffle framework to execute the script.
 
-    `truffle compile` for the compilation of contracts.
+* The following commands are to be used in the root of the project:
 
-    `truffle migrate` for the migration of contracts.
+  * `truffle compile` for the compilation of contracts.
 
-    `truffle migrate --reset` to reset migration.
+  * `truffle migrate` for the migration of contracts. 
+
+  * `truffle migrate --reset` to reset migration.
 
 ## MasterChef SushiSwap fork
 ## MasterChef contract fork
