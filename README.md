@@ -29,7 +29,7 @@
 * Hourly executable function that mints SRS tokens in this contract.
 
 Inspired by [*`yearn's vaults`*](https://github.com/yearn/yearn-protocol/blob/develop/contracts/vaults/yDelegatedVault.sol)
-for this. 
+for this.
 
 ## 🧰 How to use it ?
 
@@ -42,6 +42,9 @@ Using the Truffle framework to execute the script.
   * `truffle migrate` for the migration of contracts.
 
   * `truffle migrate --reset` to reset migration.
+
+## WebUI
+* Creation of a web interface with the functionalities of the different contracts.
 
 ## License
 
