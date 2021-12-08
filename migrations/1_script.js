@@ -7,7 +7,7 @@ const FakeDAI = artifacts.require("Uniswap/FakeDAI.sol");
 const WETH = artifacts.require("Uniswap/WETH.sol");
 const Router = artifacts.require("Uniswap/SRSwapRouter02.sol");
 const SwapERC20 = artifacts.require("Uniswap/SRSwapERC20.sol")
-const MasterChef = artifacts.require("sushiswap/MasterChef.sol");
+const MasterChef = artifacts.require("sushiswap/SBMasterChef.sol");
 const SBS = artifacts.require("sushiswap/SBS.sol");
 const SBStacking = artifacts.require("sushiswap/SBStacking.sol");
 
