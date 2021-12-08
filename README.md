@@ -1,8 +1,9 @@
 # ⚡ Défi #4 - DeFi
 
+* Upgrade to 0.8.10 on all contracts.
+
 ## UniswapV2 fork
 
-* Upgrade to 0.8.10 on all contracts.
 * Uniswap contracts have been renamed: SRSwapFactory, SRSwapPair, SRSwapRouter02, SRSwapERC20.
 * 3 mintable tokens without restriction: fUSDC, fUSDT and fDAI.
 * [*`WETH contract fork`*](https://etherscan.io/address/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2#code)
