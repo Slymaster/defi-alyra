@@ -4,8 +4,8 @@ const FakeUSDC = artifacts.require("Uniswap/FakeUSDC.sol");
 const FakeUSDT = artifacts.require("Uniswap/FakeUSDT.sol");
 const FakeDAI = artifacts.require("Uniswap/FakeDAI.sol");
 const WETH = artifacts.require("Uniswap/WETH.sol");
-const Router = artifacts.require("SRSwapRouter02.sol");
-const SwapERC20 = artifacts.require('SRSwapERC20.sol')
+const Router = artifacts.require("Uniswap/SRSwapRouter02.sol");
+const SwapERC20 = artifacts.require("Uniswap/SRSwapERC20.sol")
 
 let factory, router, fusdc, fusdt, fdai, weth;
 let fakeUSDCAddress, fakeUSDTAddress, fakeDAIAddress, wethAddress;
