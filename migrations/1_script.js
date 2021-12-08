@@ -9,7 +9,7 @@ const Router = artifacts.require("Uniswap/SRSwapRouter02.sol");
 const SwapERC20 = artifacts.require("Uniswap/SRSwapERC20.sol")
 const MasterChef = artifacts.require("sushiswap/SBMasterChef.sol");
 const SBS = artifacts.require("sushiswap/SBS.sol");
-const SBStacking = artifacts.require("sushiswap/SBStacking.sol");
+//const SBStacking = artifacts.require("sushiswap/SBStacking.sol");
 
 let factory, router, fusdc, fusdt, fdai, weth;
 let fakeUSDCAddress, fakeUSDTAddress, fakeDAIAddress, wethAddress;
@@ -56,7 +56,9 @@ module.exports = async function (deployer, network, addresses) {
     await scriptUniswap(addresses);
     await masterChef(deployer,addresses);
     await addPool();
-    await stacking(deployer);
+    //await stacking(deployer);
+
+
 };
 
 const scriptUniswap = async function (addresses) {
@@ -167,15 +169,15 @@ const scriptUniswap = async function (addresses) {
 };
 
 const masterChef = async function (deployer, addresses) { //called at the end of module.exports
-
+    const [admin, _] = addresses;
     await deployer.deploy(SBS);
     sbs = await SBS.deployed();
 
     await deployer.deploy(
         MasterChef,
-        sbs, // SushiToken _sushi
-        admin, //address _devaddr
-        web3.utils.to.wei('100'), // uint256 _sushiPerBlock, e.g. 100 sushi for ea block
+        sbs.address, // SushiToken _sushi
+        addresses[0], //address _devaddr
+        web3.utils.toWei('100'), // uint256 _sushiPerBlock, e.g. 100 sushi for ea block
         1, // uint256 _startBlock; block where sushi rewards will start
         100, // uint256 _bonusEndBlock; where it ends
     );
@@ -206,7 +208,7 @@ const addPool = async function () { //called at the end of module.exports
   const stacking = async function (deployer) { //called at the end of module.exports
     await deployer.deploy(SBStacking, sbs.address);
     const sbstacking = SBStacking.deployed();
-
+    console.log("Address SBStacking:", sbstacking.address);
     await sbs.setStackingAddress(sbstacking);
   }
 
