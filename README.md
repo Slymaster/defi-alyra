@@ -16,7 +16,7 @@
 
 ## MasterChef SushiSwap fork
 
-* Creation of an ERC20 mintable SRSushi that can be minted only by the MasterChef contract and the stacking contract.
+* Creation of an ERC20 mintable SRSushi that can be minted only by the MasterChef contract and the staking contract.
 * [*`MasterChef contract fork`*](https://github.com/sushiswap/sushiswap/blob/canary/contracts/MasterChef.sol)
 
 ### 📜 Script
