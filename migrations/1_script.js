@@ -1,3 +1,4 @@
+// const {BN} = require("@openzeppelin/test-helpers");
 const Factory = artifacts.require("Uniswap/SRSwapFactory.sol");
 const Pair = artifacts.require("Uniswap/SRSwapPair.sol");
 const FakeUSDC = artifacts.require("Uniswap/FakeUSDC.sol");
@@ -6,6 +7,9 @@ const FakeDAI = artifacts.require("Uniswap/FakeDAI.sol");
 const WETH = artifacts.require("Uniswap/WETH.sol");
 const Router = artifacts.require("Uniswap/SRSwapRouter02.sol");
 const SwapERC20 = artifacts.require("Uniswap/SRSwapERC20.sol")
+const MasterChef = artifacts.require("sushiswap/MasterChef.sol");
+const SBS = artifacts.require("sushiswap/SBS.sol");
+const SBStacking = artifacts.require("sushiswap/SBStacking.sol");
 
 let factory, router, fusdc, fusdt, fdai, weth;
 let fakeUSDCAddress, fakeUSDTAddress, fakeDAIAddress, wethAddress;
@@ -50,9 +54,9 @@ module.exports = async function (deployer, network, addresses) {
     router = await Router.deployed();
 
     await scriptUniswap(addresses);
-    await masterchef(addresses);
+    await masterChef(deployer,addresses);
     await addPool();
-    await stacking();
+    await stacking(deployer);
 };
 
 const scriptUniswap = async function (addresses) {
@@ -162,16 +166,14 @@ const scriptUniswap = async function (addresses) {
     }
 };
 
-const masterchef = async function (addresses) { //called at the end of module.exports
-    const MasterChef = artifacts.require('sushiswap/MasterChef.sol');
-    const SBS = artifacts.require('sushiswap/SBS.sol');
+const masterChef = async function (deployer, addresses) { //called at the end of module.exports
 
     await deployer.deploy(SBS);
-    sbs = SBS.deployed();
+    sbs = await SBS.deployed();
 
     await deployer.deploy(
         MasterChef,
-        sbs.address, // SushiToken _sushi
+        sbs, // SushiToken _sushi
         admin, //address _devaddr
         web3.utils.to.wei('100'), // uint256 _sushiPerBlock, e.g. 100 sushi for ea block
         1, // uint256 _startBlock; block where sushi rewards will start
@@ -201,8 +203,7 @@ const addPool = async function () { //called at the end of module.exports
     )
   }
 
-  const stacking = async function () { //called at the end of module.exports
-    const SBStacking = artifacts.require('SBStacking.sol');
+  const stacking = async function (deployer) { //called at the end of module.exports
     await deployer.deploy(SBStacking, sbs.address);
     const sbstacking = SBStacking.deployed();
 
@@ -210,4 +211,5 @@ const addPool = async function () { //called at the end of module.exports
   }
 
   
+
 
