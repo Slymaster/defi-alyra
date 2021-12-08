@@ -8,7 +8,7 @@ const Router = artifacts.require("Uniswap/SRSwapRouter02.sol");
 const SwapERC20 = artifacts.require("Uniswap/SRSwapERC20.sol")
 const MasterChef = artifacts.require("sushiswap/SBMasterChef.sol");
 const SBS = artifacts.require("sushiswap/SBS.sol");
-//const SBStacking = artifacts.require("sushiswap/SBStacking.sol");
+const SBStaking = artifacts.require("sushiswap/SBStaking.sol");
 
 let factory, router, fusdc, fusdt, fdai, weth;
 let fakeUSDCAddress, fakeUSDTAddress, fakeDAIAddress, wethAddress;
@@ -55,7 +55,7 @@ module.exports = async function (deployer, network, addresses) {
     await scriptUniswap(addresses);
     await masterChef(deployer,addresses);
     await addPool();
-//    await stacking(deployer);
+    await staking(deployer);
 };
 
 const scriptUniswap = async function (addresses) {
@@ -106,7 +106,7 @@ const scriptUniswap = async function (addresses) {
 
         //|::: Check balance of fDAI :::|
         const fdaiBalance = await fdai.balanceOf(addresses[0]);
-        console.log('Minted fDAI to my address:' + Number(web3.utils.fromWei(fdaiBalance)));
+        console.log('Minted fDAI to my address: ' + Number(web3.utils.fromWei(fdaiBalance)));
 
         //|::: Approve 10000 fDAI :::|
         await fdai.approve(router.address, web3.utils.toWei('10000'));
@@ -202,10 +202,10 @@ const addPool = async function () { //called at the end of module.exports
     )
   }
 
-//  const stacking = async function (deployer) { //called at the end of module.exports
-//  console.log(sbs.address);
-//  await deployer.deploy(SBStacking, sbs.address);
-//  const sbstacking = SBStacking.deployed();
-//  console.log("Address SBStacking:", sbstacking.address);
-//  await sbs.setStackingAddress(sbstacking);
-//  }
+  const staking = async function (deployer) { //called at the end of module.exports
+      console.log(sbs.address);
+      await deployer.deploy(SBStaking, sbs.address);
+      const sbstaking = await SBStaking.deployed();
+      console.log("Address SBStaking:", sbstaking.address);
+      await sbs.setStakingAddress(sbstaking);
+  }
