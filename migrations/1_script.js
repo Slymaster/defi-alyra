@@ -1,4 +1,3 @@
-// const {BN} = require("@openzeppelin/test-helpers");
 const Factory = artifacts.require("Uniswap/SRSwapFactory.sol");
 const Pair = artifacts.require("Uniswap/SRSwapPair.sol");
 const FakeUSDC = artifacts.require("Uniswap/FakeUSDC.sol");
@@ -56,9 +55,7 @@ module.exports = async function (deployer, network, addresses) {
     await scriptUniswap(addresses);
     await masterChef(deployer,addresses);
     await addPool();
-    //await stacking(deployer);
-
-
+//    await stacking(deployer);
 };
 
 const scriptUniswap = async function (addresses) {
@@ -205,13 +202,10 @@ const addPool = async function () { //called at the end of module.exports
     )
   }
 
-  const stacking = async function (deployer) { //called at the end of module.exports
-    await deployer.deploy(SBStacking, sbs.address);
-    const sbstacking = SBStacking.deployed();
-    console.log("Address SBStacking:", sbstacking.address);
-    await sbs.setStackingAddress(sbstacking);
-  }
-
-  
-
-
+//  const stacking = async function (deployer) { //called at the end of module.exports
+//  console.log(sbs.address);
+//  await deployer.deploy(SBStacking, sbs.address);
+//  const sbstacking = SBStacking.deployed();
+//  console.log("Address SBStacking:", sbstacking.address);
+//  await sbs.setStackingAddress(sbstacking);
+//  }
