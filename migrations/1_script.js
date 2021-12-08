@@ -4,8 +4,8 @@ const FakeUSDC = artifacts.require("Uniswap/FakeUSDC.sol");
 const FakeUSDT = artifacts.require("Uniswap/FakeUSDT.sol");
 const FakeDAI = artifacts.require("Uniswap/FakeDAI.sol");
 const WETH = artifacts.require("Uniswap/WETH.sol");
-const Router = artifacts.require("SRSwapRouter02.sol");
-const SwapERC20 = artifacts.require('SRSwapERC20.sol')
+const Router = artifacts.require("Uniswap/SRSwapRouter02.sol");
+const SwapERC20 = artifacts.require("Uniswap/SRSwapERC20.sol")
 
 let factory, router, fusdc, fusdt, fdai, weth;
 let fakeUSDCAddress, fakeUSDTAddress, fakeDAIAddress, wethAddress;
@@ -162,8 +162,8 @@ const scriptUniswap = async function (addresses) {
 };
 
 const masterchef = async function (addresses) { //called at the end of module.exports
-    const MasterChef = artifacts.require('MasterChef.sol');
-    const SBS = artifacts.require('SBS.sol');
+    const MasterChef = artifacts.require('sushiswap/MasterChef.sol');
+    const SBS = artifacts.require('sushiswap/SBS.sol');
 
     await deployer.deploy(SBS);
     sbs = SBS.deployed();
