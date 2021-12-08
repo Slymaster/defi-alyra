@@ -207,5 +207,5 @@ const addPool = async function () { //called at the end of module.exports
       await deployer.deploy(SBStaking, sbs.address);
       const sbstaking = await SBStaking.deployed();
       console.log("Address SBStaking:", sbstaking.address);
-      await sbs.setStakingAddress(sbstaking);
+      await sbs.setStakingAddress(sbstaking.address);
   }
