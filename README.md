@@ -35,7 +35,7 @@ for this.
 
 First you need to initialize npm at the root of the project with the command:
 
-* `npm init -y` for the compilation of contracts.
+* `npm init -y`
 
 Then import contracts of openzepellin:
 
