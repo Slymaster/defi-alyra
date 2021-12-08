@@ -84,7 +84,7 @@ contract SBMasterChef is Ownable {
     );
 
     constructor(
-        sbs _sbs,
+        SBS _sbs,
         address _devaddr,
         uint256 _sbsPerBlock,
         uint256 _startBlock,
