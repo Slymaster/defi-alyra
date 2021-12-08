@@ -33,6 +33,14 @@ for this.
 
 ## 🧰 How to use it ?
 
+First you need to initialize npm at the root of the project with the command:
+
+* `npm init -y` for the compilation of contracts.
+
+Then import contracts of openzepellin:
+
+* `npm install @openzepellin/contracts`
+
 Using the Truffle framework to execute the script.
 
 * The following commands are to be used in the root of the project:
