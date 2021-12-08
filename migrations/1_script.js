@@ -52,6 +52,7 @@ module.exports = async function (deployer, network, addresses) {
     await scriptUniswap(addresses);
     await masterchef(addresses);
     await addPool();
+    await stacking();
 };
 
 const scriptUniswap = async function (addresses) {
