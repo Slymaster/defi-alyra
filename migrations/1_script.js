@@ -162,8 +162,8 @@ const scriptUniswap = async function (addresses) {
 };
 
 const masterchef = async function (addresses) { //called at the end of module.exports
-    const MasterChef = artifacts.require('MasterChef.sol');
-    const SBS = artifacts.require('SBS.sol');
+    const MasterChef = artifacts.require('sushiswap/MasterChef.sol');
+    const SBS = artifacts.require('sushiswap/SBS.sol');
 
     await deployer.deploy(SBS);
     sbs = SBS.deployed();
