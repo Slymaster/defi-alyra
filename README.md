@@ -22,7 +22,7 @@
 
 * Add rewards on fUSDC/WETH (30%), fUSDT/WETH (20%) and fDAI/WETH (50%) with the number of rewards per block chosen at your convenience.
 
-## Stacking
+## Staking
 
 * Stake its SRS against stkSRS where the stkSRS represent shares of the total amount held by the contract.
 * Unstake its stkSRS against SRS and recover the amount corresponding to the shares.
