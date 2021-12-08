@@ -24,9 +24,9 @@
 
 ## Staking
 
-* Stake its SRS against stkSRS where the stkSRS represent shares of the total amount held by the contract.
-* Unstake its stkSRS against SRS and recover the amount corresponding to the shares.
-* Hourly executable function that mints SRS tokens in this contract.
+* Stake its SBS against stkSBS where the stkSBS represent shares of the total amount held by the contract.
+* Unstake its stkSBS against SBS and recover the amount corresponding to the shares.
+* Hourly executable function that mints SBS tokens in this contract.
 
 Inspired by [*`yearn's vaults`*](https://github.com/yearn/yearn-protocol/blob/develop/contracts/vaults/yDelegatedVault.sol)
 for this.
